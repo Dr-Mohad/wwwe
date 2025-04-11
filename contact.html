@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mohad-Cadde</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 10rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .social-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-light);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
+            border-color: var(--primary-light);
+        }
+        
+        .social-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .social-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .social-handle {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .social-link {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-light);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .contact-section {
+                padding: 8rem 1.5rem 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-user-circle"></i>
+                <span>𝙼𝚘𝚑𝚊𝚍-𝙲𝚊𝚍𝚍𝚎</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="aboutjus.html">About JUS</a>
+                <a href="village.html">My Locality</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="contact-section">
+        <div class="section-header">
+            <h1 class="section-title">Connect With Me</h1>
+            <p class="section-subtitle">Reach out through any of these platforms for collaborations or conversations</p>
+        </div>
+        
+        <div class="social-grid">
+            <!-- Twitter -->
+            <div class="social-card">
+                <i class="fab fa-twitter social-icon"></i>
+                <h3 class="social-name">Twitter</h3>
+                <span class="social-handle">@MahadMoha79088</span>
+                <a href="https://x.com/MahadMoha79088" class="social-link" target="_blank">Follow Me</a>
+            </div>
+            
+            <!-- Instagram -->
+            <div class="social-card">
+                <i class="fab fa-instagram social-icon"></i>
+                <h3 class="social-name">Instagram</h3>
+                <span class="social-handle">@mahadmohamed.abdi.58</span>
+                <a href="https://www.instagram.com/mahadmohamed.abdi.58/" class="social-link" target="_blank">DM Me</a>
+            </div>
+            
+            <!-- TikTok -->
+            <div class="social-card">
+                <i class="fab fa-tiktok social-icon"></i>
+                <h3 class="social-name">TikTok</h3>
+                <span class="social-handle">@alvaro_morata_____</span>
+                <a href="https://www.tiktok.com/@alvaro_morata_____?_t=ZM-8vS9aDV8J1T&_r=1" class="social-link" target="_blank">Follow Me</a>
+            </div>
+            
+            <!-- Facebook -->
+            <div class="social-card">
+                <i class="fab fa-facebook-f social-icon"></i>
+                <h3 class="social-name">Facebook</h3>
+                <span class="social-handle">@mahadpmohamed</span>
+                <a href="https://www.facebook.com/mahadpmohamed/" class="social-link" target="_blank">Message Me</a>
+            </div>
+            
+            <!-- GitHub -->
+            <div class="social-card">
+                <i class="fab fa-github social-icon"></i>
+                <h3 class="social-name">GitHub</h3>
+                <span class="social-handle">@Dr-Mohad</span>
+                <a href="https://github.com/Dr-Mohad" class="social-link" target="_blank">View Projects</a>
+            </div>
+            
+            <!-- WhatsApp -->
+            <div class="social-card">
+                <i class="fab fa-whatsapp social-icon"></i>
+                <h3 class="social-name">WhatsApp</h3>
+                <span class="social-handle">+252615158488</span>
+                <a href="https://wa.me/+252615158488" class="social-link" target="_blank">Chat Now</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p class="copyright"> &copy; 2023 Mahad Maxamed Cabdi. Xuquuqda oo dhan waa la xifdiyay.</p>
+    </footer>
+</body>
+</html>
