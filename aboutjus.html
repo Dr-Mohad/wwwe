@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ku Saabsan JUS | Jaamacadda Ummadda Soomaaliyeed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #e0e9ff;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .university-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255,255,255,1) 100%);
+            text-align: center;
+        }
+        
+        .university-hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .university-hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .university-logo {
+            height: 120px;
+            margin-bottom: 2rem;
+        }
+        
+        .content-section {
+            padding: 4rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section-content p {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .faculties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .faculty-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faculty-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .faculty-card h3 i {
+            font-size: 1.5rem;
+        }
+        
+        .faculty-card ul {
+            list-style-type: none;
+        }
+        
+        .faculty-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .faculty-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .faculty-card li i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 4rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .faculties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .university-hero {
+                padding: 130px 0 60px;
+            }
+            
+            .university-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-user-circle logo-icon"id='icon'></i> <span>𝙼𝚘𝚑𝚊𝚍-𝙲𝚊𝚍𝚍𝚎</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Me</a>
+                    <a href="aboutjus.html">About JUS</a>
+                    <a href="village.html">My Locality</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="university-hero">
+        <div class="container">
+            <img src="https://snu.edu.so/wp-content/uploads/2020/02/snu-logo.png" alt="Jaamacadda Ummadda Soomaaliyeed" class="university-logo">
+            <h1>Jaamacadda Ummadda Soomaaliyeed (JUS)</h1>
+            <p>Jaamacad qaran oo taariikh dheer leh oo ka shaqeysa horumarinta aqoonta iyo cilmi-baarista Soomaaliya</p>
+        </div>
+    </section>
+    
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>1. Taariikhda Jaamacadda</h2>
+            </div>
+            <div class="section-content">
+                <p>Jaamacadda Ummadda Soomaaliyeed (JUS) waa jaamacaddii ugu horraysay ee dowladdu leedahay ee laga hirgeliyo Soomaaliya. Waxaa la aasaasay sanadkii 1954, iyada oo markaas lagu magacaabi jiray Institute of Law and Economics. Markii dalka xornimada qaatay 1960, jaamacadda waxay sii ballaaratay, waxaana lagu daray kuliyado kale oo waxbarasho sare bixiya.</p>
+                
+                <p>Sanadkii 1973, Jaamacadda Ummadda Soomaaliyeed waxaa si rasmi ah loogu dhawaaqay inay tahay jaamacad buuxda oo qaran, taas oo ay dowladdii markaas jirtay ee kacaanka hogaaminaysay. Jaamacaddu waxay kaalin weyn ka qaadatay horumarinta aqoonta dalka, iyada oo bixisay waxbarasho sare oo bilaash ah, lana jaanqaadaysay jaamacadaha caalamiga ah.</p>
+                
+                <p>Dagaalladii sokeeye ee Soomaaliya ka dhacay kadib, Jaamacadda Ummadda Soomaaliyeed way hakad gashay, balse dib ayaa loo furay sannadkii 2014, iyadoo la soo celiyay qaar ka mid ah kuliyadihii muhiimka ahaa sida Sayniska, Injineerinka, iyo Caafimaadka. Maanta, jaamacaddu waxay mar kale noqotay xarun waxbarasho sare oo ay kumanaan arday wax ka bartaan.</p>
+                
+                <p>Jaamacaddu waxay xarun weyn ku leedahay magaalada Muqdisho, iyadoo kuliyado iyo laamo kala duwan ku leh gobollada dalka. JUS waxay door muhiim ah ka ciyaartay kobcinta aqoonta iyo horumarinta cilmiga Soomaaliya.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="content-section" style="background-color: var(--primary-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>2. Kuliyadaha Jaamacadda</h2>
+            </div>
+            <div class="faculties-grid">
+                <div class="faculty-card">
+                    <h3><i class="fas fa-hospital"></i> Kulliyadda Caafimaadka</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Daawo (Medicine)</li>
+                        <li><i class="fas fa-check"></i> Kalkaalisada (Nursing)</li>
+                        <li><i class="fas fa-check"></i> Farmashiyaha (Pharmacy)</li>
+                        <li><i class="fas fa-check"></i> Ilkaha (Dentistry)</li>
+                        <li><i class="fas fa-check"></i> Shaybaarka (Lab Science)</li>
+                    </ul>
+                </div>
+                
+                <div class="faculty-card">
+                    <h3><i class="fas fa-cogs"></i> Kulliyadda Injineerinka</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Injineerinka Dhismaha</li>
+                        <li><i class="fas fa-check"></i> Injineerinka Korontada</li>
+                        <li><i class="fas fa-check"></i> Injineerinka Kombuyuutarka</li>
+                        <li><i class="fas fa-check"></i> Injineerinka Mechatronics</li>
+                    </ul>
+                </div>
+                
+                <div class="faculty-card">
+                    <h3><i class="fas fa-laptop-code"></i> Sayniska & Tiknolojiyadda</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Sayniska Kombuyuutarka</li>
+                        <li><i class="fas fa-check"></i> Xisaabta (Mathematics)</li>
+                        <li><i class="fas fa-check"></i> Physics</li>
+                        <li><i class="fas fa-check"></i> Chemistry</li>
+                        <li><i class="fas fa-check"></i> Biology</li>
+                    </ul>
+                </div>
+                
+                <div class="faculty-card">
+                    <h3><i class="fas fa-leaf"></i> Beeraha & Deegaanka</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Beeraha (Agriculture)</li>
+                        <li><i class="fas fa-check"></i> Deegaanka (Environmental Sci)</li>
+                        <li><i class="fas fa-check"></i> Cilmiga Xoolaha</li>
+                    </ul>
+                </div>
+                
+                <div class="faculty-card">
+                    <h3><i class="fas fa-chart-line"></i> Dhaqaalaha & Maamulka</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Maamulka Ganacsiga</li>
+                        <li><i class="fas fa-check"></i> Dhaqaalaha (Economics)</li>
+                        <li><i class="fas fa-check"></i> Xisaabaadka (Accounting)</li>
+                        <li><i class="fas fa-check"></i> Suuq-geynta (Marketing)</li>
+                    </ul>
+                </div>
+                
+                <div class="faculty-card">
+                    <h3><i class="fas fa-gavel"></i> Sharciga & Siyaasadda</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Sharciga iyo Caddaaladda</li>
+                        <li><i class="fas fa-check"></i> Cilmiga Siyaasadda</li>
+                        <li><i class="fas fa-check"></i> Xiriirka Caalamiga</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>My Journey</h3>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Me</a>
+                        <a href="aboutjus.html">About JUS</a>
+                        <a href="village.html">My Locality</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Me</h3>
+                    <div class="footer-links">
+                        <a href="https //wa.me/+252615158488">WhatsApp</a>
+                        <a href="tel:+252615158488">+252615158488</a>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/mahadpmohamed/"><i class="fab fa-facebook"></i></a>
+                            <a href="https://x.com/MahadMoha79088"><i class="fab fa-twitter"></i></a>
+                            <a href="https://github.com/Dr-Mohad"><i class="fab fa-github"></i></a>
+                            <a href="https://www.instagram.com/mahadmohamed.abdi.58/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Mahad Maxamed Cabdi. Xuquuqda oo dhan waa la xifdiyay..
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

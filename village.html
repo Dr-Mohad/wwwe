@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xaafadda Ceel-Dheer - Mahad Cadde</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #e0e9ff;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #2d3748;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--light);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            padding: 180px 0 80px;
+            background: linear-gradient(rgba(172, 187, 219, 0.8), rgba(37, 99, 235, 0.8)), 
+                        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFHY4f0ZPuc58S8GGwjagwIlLDNaE-KoLHig&s') center/cover no-repeat;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .intro-section {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .intro-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border: 1px solid var(--primary-light);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-image {
+            height: 250px;
+            width: 100%;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .feature-content {
+            padding: 1.5rem;
+        }
+        
+        .feature-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .feature-content p {
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 150px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Mahad Cadde</div>
+            <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Me</a>
+                    <a href="aboutjus.html">About JUS</a>
+                    <a href="village.html">My Locality</a>
+                    <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Xaafadda Ceel-Dheer</h1>
+            <p>Mid ka mid ah xaafadaha ugu wanaagsan degmada Dharkenley</p>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="intro-section">
+            <p>Waxaa aan deganahay mid kamid ah xaafadaha ay ka koobantahay degmada dharkenley ee gobolka benaadir, oo lagu magacaabo CEEL-DHEER.</p>
+            <p>CEEL-DHEER waa mid ka mid xaafadaha ugu wanaagsan guud ahaan gobolka, gaar ahaan degamada dharkenley.</p>
+            <p>Aad bay u wanaagsantahay amni ahaan iyo deegaan ahaan marka loo eego xaafadaha keli.</p>
+        </div>
+        
+        <div class="section-title">
+            <h2>Waxyaabaha ugu Wanaagsan Xaafadeena</h2>
+        </div>
+        
+        <div class="features-grid">
+            <!-- Amni -->
+            <div id="Amni" class="feature-card">
+                <div class="feature-image">
+                    <img src="amni.jpeg" alt="Amni">
+                </div>
+                <div class="feature-content">
+                    <h3>Amni</h3>
+                    <p>Xaafadda Ceel-Dheer waxay leedahay nidaam ammaan oo adag oo ka shaqeeya 24 saac. Waxaa jira ciidamo ammaan oo joogto ah iyo isgaarsiin degdeg ah.</p>
+                </div>
+            </div>
+            
+            <!-- Deegaan Qurux badan -->
+            <div id="Deegaan-Qurux-badan" class="feature-card">
+                <div class="feature-image">
+                    <img src="dhegan-q.jpeg" alt="Deegaan Qurux badan">
+                </div>
+                <div class="feature-content">
+                    <h3>Deegaan Qurux badan</h3>
+                    <p>Xaafadeena waxay ku taallaa meel qurux badan oo leh waddooyin qumman, beero cagaaran, iyo guryo qurux badan oo qaab modern leh.</p>
+                </div>
+            </div>
+            
+            <!-- Bulsho Isku Haleesha -->
+            <div id="Bulsho-Isku-Haleesha" class="feature-card">
+                <div class="feature-image">
+                    <img src="dd-is.jpeg" alt="Bulsho Isku Haleesha">
+                </div>
+                <div class="feature-content">
+                    <h3>Bulsho Isku Haleesha</h3>
+                    <p>Bulshada Ceel-Dheer waxay ku kala nool yihiin nabad, isku haleel, iyo iskaashi. Waxaa jira ururo bulsho oo badan oo ka shaqeeya horumarinta deegaanka.</p>
+                </div>
+            </div>
+            
+            <!-- Waxbarasho -->
+            <div id="Waxbarasho" class="feature-card">
+                <div class="feature-image">
+                    <img src="waxbarasho.jpeg" alt="Waxbarasho">
+                </div>
+                <div class="feature-content">
+                    <h3>Waxbarasho</h3>
+                    <p>Xaafadu waxay leedahay school tayo leh  oo la dhaho al-anwaar primary and secondary school kaas oo ka kooban dugsiyada hoose, dhexe iyo sare.</p>
+                </div>
+            </div>
+            
+            <!-- Masaajid -->
+            <div id="Masaajid" class="feature-card">
+                <div class="feature-image">
+                    <img src="masj.jpeg" alt="Masaajid">
+                </div>
+                <div class="feature-content">
+                    <h3>Masaajid</h3>
+                    <p>Xaafadda waxaa ku yaal masaajidyo qurux badan oo loo yaqaan Al-iiman kaas oo kamida masjid-yada ugu caansan xafadda Ceel-Dheer</p>
+                </div>
+            </div>
+            
+            <!-- Ciyaaraha -->
+            <div id="Sport" class="feature-card">
+                <div class="feature-image">
+                    <img src="sport.jpeg" alt="Ciyaaraha">
+                </div>
+                <div class="feature-content">
+                    <h3>Ciyaaraha</h3>
+                    <p>Xaafadu waxay leedahay garoonka kubadda cagta ee Ceel-Dheer iyo goobaha ciyaaraha ee loogu talagalay carruurta iyo dhalinyarada.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.facebook.com/mahadpmohamed/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/MahadMoha79088"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mahadmohamed.abdi.58/"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/Dr-Mohad"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="copyright">&copy; 2023 Mahad Maxamed Cabdi. Xuquuqda oo dhan waa la xifdiyay.</p>
+        </div>
+    </footer>
+</body>
+</html>
